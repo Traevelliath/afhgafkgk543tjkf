@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth} from '../../utils/firebase/firebase.utils';
+import { createAuthUserWithEmailAndPassword,
+        createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import FormInputComponent from '../form-input/form-input.component';
 import ButtonComponent from '../button/button.component';
 import './sign-up-form.styles.scss';
@@ -15,6 +16,7 @@ const SignUpFormComponent = () => {
     const [ formFields, setFormFields ] = useState(defaultFormField)
     const { displayName, email, password, confirmPassword } = formFields;
 
+
     const resetFormFields = () => setFormFields(defaultFormField);
 
     const changeHandler = (event) => {
@@ -29,6 +31,7 @@ const SignUpFormComponent = () => {
         if (password !== confirmPassword) return alert('passwords are not identical, fix it.');
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
+
             await createUserDocumentFromAuth(user, { displayName });
             resetFormFields();
             alert('You are registered now.');

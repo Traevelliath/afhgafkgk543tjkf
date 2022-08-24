@@ -1,6 +1,8 @@
 import FormInputComponent from '../form-input/form-input.component';
-import {useState} from 'react';
-import {createUserDocumentFromAuth, signInWithEmail, signInWithGooglePopup} from '../../utils/firebase/firebase.utils';
+import { useState } from 'react';
+import { createUserDocumentFromAuth,
+        signInWithEmail,
+        signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 import ButtonComponent from '../button/button.component';
 import './sign-in-form.styles.scss'
 
@@ -14,9 +16,7 @@ const SignInFormComponent = () => {
     const { email, password } = formFields;
 
     const signInWithGoogle = async () => {
-        const {user} = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
-        alert(`Welcome back ${user.displayName}`);
+        await signInWithGooglePopup();
     }
 
     const changeHandler = (event) => {
@@ -33,7 +33,6 @@ const SignInFormComponent = () => {
         try {
             const {user} = await signInWithEmail(email, password);
             resetFormFields();
-            console.log(user)
             alert(`Welcome back ${user.displayName}`);
         } catch(error) {
             switch (error) {
@@ -71,7 +70,9 @@ const SignInFormComponent = () => {
                     value={password} />
                 <div className='buttons-container'>
                     <ButtonComponent type='submit'>Sign In</ButtonComponent>
-                    <ButtonComponent type='button' buttonType='google' onClick={signInWithGoogle}>Google Sign In</ButtonComponent>
+                    <ButtonComponent type='button' buttonType='google' onClick={signInWithGoogle}>
+                        Google Sign In
+                    </ButtonComponent>
                 </div>
             </form>
         </div>
