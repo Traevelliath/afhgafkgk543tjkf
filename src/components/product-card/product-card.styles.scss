@@ -5,6 +5,8 @@
   height: 350px;
   align-items: center;
   position: relative;
+  user-select: none;
+  margin: 1rem;
 
   img {
     width: 100%;
@@ -37,7 +39,7 @@
     height: 5%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 1.5rem;
 
     .name {
       width: 90%;
