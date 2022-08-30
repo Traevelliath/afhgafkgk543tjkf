@@ -6,7 +6,8 @@ import ProductCardComponent from '../../components/product-card/product-card.com
 import './shop.styles.scss';
 
 const ShopComponent = () => {
-    const { products } = useContext(ProductsContext)
+    const { products } = useContext(ProductsContext);
+
     return (
         <div className='products-container'>
             {products.map(product =>

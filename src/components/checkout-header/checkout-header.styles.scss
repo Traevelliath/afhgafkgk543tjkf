@@ -1,0 +1,8 @@
+.header-block {
+  text-transform: uppercase;
+  width: 23%;
+
+  &:last-child {
+    width: 10%;
+  }
+}

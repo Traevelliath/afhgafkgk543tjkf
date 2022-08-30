@@ -5,14 +5,14 @@ import CartDropdownComponent from '../../components/cart-dropdown/cart-dropdown.
 
 import { Fragment, useContext } from 'react';
 import { UserContext } from '../../context/user.context';
-import { DropdownContext } from '../../context/dropdown.context';
+import { CartContext } from '../../context/cart.context';
 
 import { ReactComponent as CrwnLogo } from '../../assets/logo.svg';
 import './navigation.styles.scss';
 
 const NavigationComponent = () => {
     const { currentUser } = useContext(UserContext);
-    const { hideDropdown } = useContext(DropdownContext);
+    const { hideDropdown } = useContext(CartContext);
 
     return (
         <Fragment>
