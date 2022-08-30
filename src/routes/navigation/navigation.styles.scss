@@ -1,18 +1,29 @@
 .navigation {
-  height: 4rem;
+  height: 5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
   user-select: none;
+  background: white;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  opacity: 0.95;
 
   .logo-container {
-    height: 100%;
-    width: 70px;
-    padding: 25px;
+    height: 5rem;
+    width: min-content;
+    box-sizing: border-box;
+
+
+    .logo {
+      height: 100%;
+    }
   }
 
   .navlinks-container {
+    padding-right: 4rem;
     width: 50%;
     height: 100%;
     display: flex;

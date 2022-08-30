@@ -15,7 +15,7 @@ const CartItemComponent = ({ cartItem }) => {
                 <h2 className='name'>{name}</h2>
                 <span className='price'>{quantity} x ${price}</span>
             </div>
-            <div className='remove-button' onClick={clearFromCart}>&#10005;</div>
+            <div className='remove-button-dropdown' onClick={clearFromCart}>&#10005;</div>
         </div>
     )
 }

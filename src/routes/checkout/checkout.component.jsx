@@ -18,7 +18,10 @@ const CheckoutComponent = () => {
     return (
         <div className='checkout-container'>
             <div className='checkout-header'>
-                {checkoutHeaders.map(header => <CheckoutHeaderComponent header={ header } />)}
+                {checkoutHeaders.map(header => <CheckoutHeaderComponent
+                    key={ checkoutHeaders.indexOf(header) }
+                    header={ header }
+                />)}
             </div>
             {
                 !(cartItems.length === 0) ?
