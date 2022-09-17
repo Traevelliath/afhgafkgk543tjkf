@@ -1,17 +1,20 @@
-import './cart-dropdown.styles.scss';
 import ButtonComponent from '../button/button.component';
 import CartItemComponent from '../cart-item/cart-item.component';
-import { useContext } from 'react';
-import { CartContext } from '../../context/cart.context';
+
 import { useNavigate } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectCartItems, selectHideDropdown} from '../../store/cart/cart-selector';
+import {setHideDropdown} from '../../store/cart/cart-action';
 
 const CartDropdownComponent = () => {
-    const { hideDropdown, setHideDropdown, cartItems } = useContext(CartContext);
+    const dispatch = useDispatch()
+    const cartItems = useSelector(selectCartItems)
+    const hideDropdown = useSelector(selectHideDropdown)
     const navigate = useNavigate();
 
     const goToCheckoutHandler = () => {
         navigate('/checkout');
-        setHideDropdown(!hideDropdown);
+        dispatch((setHideDropdown(!hideDropdown)))
     }
 
     return (

@@ -1,5 +1,3 @@
-import './checkout-header.styles.scss';
-
 const CheckoutHeaderComponent = ({ header }) => {
     return (
         <div className='header-block'>

@@ -1,4 +1,3 @@
-import './category-item.styles.scss'
 import {useNavigate} from 'react-router-dom';
 
 const CategoryItemContainer = ({category}) => {

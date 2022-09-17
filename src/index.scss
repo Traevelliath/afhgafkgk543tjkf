@@ -1,6 +1,12 @@
+@media (min-width: 500px) {
+  body {
+    padding: 20px 40px;
+  }
+}
+
 body {
+  padding: 1rem .5rem;
   margin: 2rem 0 0 0;
-  padding: 20px 40px;
   font-family: 'Alumni Sans Pinstripe', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

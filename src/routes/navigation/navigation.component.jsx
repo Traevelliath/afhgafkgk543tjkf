@@ -1,24 +1,24 @@
-import { Outlet, Link } from "react-router-dom";
+import {Link, Outlet} from 'react-router-dom';
 import { signOutUser } from '../../utils/firebase/firebase.utils'
 import CartIconComponent from '../../components/cart-icon/cart-icon.component';
 import CartDropdownComponent from '../../components/cart-dropdown/cart-dropdown.component';
 
-import { Fragment, useContext } from 'react';
-import { UserContext } from '../../context/user.context';
-import { CartContext } from '../../context/cart.context';
+import { Fragment } from 'react';
 
 import { ReactComponent as CrwnLogo } from '../../assets/logo.svg';
-import './navigation.styles.scss';
+import {useSelector} from 'react-redux';
+import {userSelector} from '../../store/user/user-selector';
+import {selectHideDropdown} from '../../store/cart/cart-selector';
 
 const NavigationComponent = () => {
-    const { currentUser } = useContext(UserContext);
-    const { hideDropdown } = useContext(CartContext);
+    const currentUser = useSelector(userSelector)
+    const hideDropdown = useSelector(selectHideDropdown)
 
     return (
         <Fragment>
             <div className='navigation'>
                 <Link className='logo-container' to='/'>
-                    <CrwnLogo className='logo' />
+                    <CrwnLogo style={{height: 100+'%'}}/>
                 </Link>
                 <div className='navlinks-container'>
                     <Link className='navlink' to='/shop'>
