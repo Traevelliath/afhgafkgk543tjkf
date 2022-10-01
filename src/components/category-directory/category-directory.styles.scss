@@ -1,0 +1,16 @@
+.container {
+}
+
+.categories-container {
+  margin: 1em;
+}
+
+@media (min-width: 800px) {
+
+  .categories-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+
+}

@@ -1,15 +1,17 @@
-@media (min-width: 500px) {
-  body {
-    padding: 20px 40px;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
-  padding: 1rem .5rem;
-  margin: 2rem 0 0 0;
   font-family: 'Alumni Sans Pinstripe', sans-serif;
+  font-size: 1.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.body {
+  width: 100%;
 }
 
 code {
@@ -19,9 +21,5 @@ code {
 
 a {
   text-decoration: none;
-  color: black;
-}
-
-* {
-  box-sizing: border-box;
+  color: inherit;
 }

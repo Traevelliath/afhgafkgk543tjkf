@@ -1,0 +1,14 @@
+.cart-icon-container {
+  display: flex;
+  align-items: center;
+
+  .shopping-icon {
+    height: 3rem;
+    padding-bottom: 6px;
+  }
+
+  .item-count {
+    position: relative;
+    right: 50%;
+  }
+}

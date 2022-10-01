@@ -10,6 +10,8 @@ import {useSelector} from 'react-redux';
 import {userSelector} from '../../store/user/user-selector';
 import {selectHideDropdown} from '../../store/cart/cart-selector';
 
+import './navigation.styles.scss'
+
 const NavigationComponent = () => {
     const currentUser = useSelector(userSelector)
     const hideDropdown = useSelector(selectHideDropdown)
@@ -18,7 +20,7 @@ const NavigationComponent = () => {
         <Fragment>
             <div className='navigation'>
                 <Link className='logo-container' to='/'>
-                    <CrwnLogo style={{height: 100+'%'}}/>
+                    <CrwnLogo/>
                 </Link>
                 <div className='navlinks-container'>
                     <Link className='navlink' to='/shop'>

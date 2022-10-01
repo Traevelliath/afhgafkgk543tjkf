@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {selectCartCount, selectHideDropdown} from '../../store/cart/cart-selector';
 import {setHideDropdown} from '../../store/cart/cart-action';
 
+import './cart-icon.styles.scss'
+
 const CartIconComponent = () => {
     const dispatch = useDispatch();
     const hideDropdown = useSelector(selectHideDropdown);
@@ -12,7 +14,7 @@ const CartIconComponent = () => {
 
     return (
         <div className='cart-icon-container' onClick={setDropdown}>
-            <ShoppingIcon className='shopping-icon' />
+            <ShoppingIcon className='shopping-icon'></ShoppingIcon>
             <span className='item-count'>{cartTotalCount}</span>
         </div>
     )

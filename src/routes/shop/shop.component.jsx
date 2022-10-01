@@ -1,17 +1,30 @@
-import {Fragment} from 'react';
+import { Fragment, useEffect } from 'react';
 import ShopCategoriesComponent from '../../components/shop-categories/shop-categories.component';
-import {useSelector} from 'react-redux';
-import {selectCategoriesMap} from '../../store/categories/category-selector';
+import { useDispatch, useSelector } from 'react-redux';
+import SpinnerComponent from '../../components/spinner/spinner.component';
+import { fetchCategoriesAsync } from '../../store/categories/category-action';
+import { selectCategoriesIsLoading, selectCategoriesMap } from '../../store/categories/category-selector';
+
 
 const ShopComponent = () => {
-    const categoriesMap = useSelector(selectCategoriesMap)
+    const dispatch = useDispatch();
+    const categoriesMap = useSelector(selectCategoriesMap);
+    const isLoading = useSelector(selectCategoriesIsLoading);
     const target = 'shop'
+
+    useEffect(() => {
+        dispatch(fetchCategoriesAsync())
+    }, [])
 
     return (
         <Fragment>
-            {Object.keys(categoriesMap).map(title => (
-                <ShopCategoriesComponent key={ title } title={ title } target={ target }/>
-            ))}
+            {
+                isLoading ?
+                    <SpinnerComponent/> :
+                    Object.keys(categoriesMap).map(title =>
+                        <ShopCategoriesComponent key={ title } title={ title } target={ target }/>
+                    )
+            }
         </Fragment>
     )
 }
