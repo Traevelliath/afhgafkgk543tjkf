@@ -2,7 +2,7 @@ import { Fragment, useEffect } from 'react';
 import ShopCategoriesComponent from '../../components/shop-categories/shop-categories.component';
 import { useDispatch, useSelector } from 'react-redux';
 import SpinnerComponent from '../../components/spinner/spinner.component';
-import { fetchCategoriesAsync } from '../../store/categories/category-action';
+import { fetchCategoriesStart } from '../../store/categories/category-action';
 import { selectCategoriesIsLoading, selectCategoriesMap } from '../../store/categories/category-selector';
 
 
@@ -13,7 +13,7 @@ const ShopComponent = () => {
     const target = 'shop'
 
     useEffect(() => {
-        dispatch(fetchCategoriesAsync())
+        dispatch(fetchCategoriesStart())
     }, [])
 
     return (

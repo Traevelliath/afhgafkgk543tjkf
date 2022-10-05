@@ -1,0 +1,43 @@
+.button-container {
+  cursor: pointer;
+  width: auto;
+  min-width: 15em;
+  text-transform: uppercase;
+  font-family: 'Gemunu Libre', sans-serif;
+  font-weight: 700;
+  padding: 0;
+  line-height: 1.6;
+  letter-spacing: .2em;
+  color: white;
+  border: 1px transparent solid;
+  background-color: black;
+
+  &:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  &.google-sign-in {
+    background-color: dodgerblue;
+    color: white;
+
+    &:hover {
+      background-color: #197ad8;
+      border: 1px solid transparent;
+    }
+  }
+
+  &.inverted {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      border: 1px solid transparent;
+    }
+  }
+}
+

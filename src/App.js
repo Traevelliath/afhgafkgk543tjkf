@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import Home from "./routes/home/home.component";
 import { Routes, Route } from "react-router-dom";
 import NavigationComponent from "./routes/navigation/navigation.component";
@@ -5,19 +6,14 @@ import ShopComponent from "./routes/shop/shop.component";
 import AuthenticationComponent from "./routes/authentication/authentication.component";
 import CheckoutComponent from './routes/checkout/checkout.component';
 import DynamicProductPageComponent from './routes/dynamic-product-page/dynamic-product-page.component';
-import {useEffect} from 'react';
-import {createUserDocumentFromAuth, onAuthStateChangedListener} from './utils/firebase/firebase.utils';
-import { setCurrentUser } from './store/user/user-actions';
-import {useDispatch} from 'react-redux';
+import { useEffect } from 'react';
+import { checkUserSession } from './store/user/user-actions';
 
 const App = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        return onAuthStateChangedListener(user => {
-            if (user) createUserDocumentFromAuth(user);
-            dispatch(setCurrentUser(user));
-        })
+        dispatch(checkUserSession())
     }, [])
 
     return (

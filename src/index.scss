@@ -4,14 +4,18 @@
 }
 
 body {
-  font-family: 'Alumni Sans Pinstripe', sans-serif;
+  font-family: 'Gemunu Libre', sans-serif;
   font-size: 1.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.body {
+.container {
   width: 100%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1500px;
+  cursor: default;
 }
 
 code {

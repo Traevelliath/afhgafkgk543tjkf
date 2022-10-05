@@ -1,0 +1,32 @@
+.category-title {
+  text-transform: uppercase;
+  padding: 1em;
+  text-align: center;
+
+  &.shop-header {
+    cursor: pointer;
+    letter-spacing: .2em;
+
+    width: max-content;
+  }
+
+  &.shop-header:hover {
+    text-decoration: underline;
+  }
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em 1em;
+
+  &:last-child {
+    margin-bottom: 2em;
+  }
+}
+
+.shop {
+  :nth-of-type(1n+5) {
+    display: none;
+  }
+}

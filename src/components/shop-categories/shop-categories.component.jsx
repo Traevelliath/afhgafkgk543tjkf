@@ -1,25 +1,27 @@
 import { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { selectCategoriesIsLoading, selectCategoriesMap } from '../../store/categories/category-selector';
 
 import ProductCardComponent from '../product-card/product-card.component';
-import { useSelector } from 'react-redux';
-import { selectCategoriesIsLoading, selectCategoriesMap } from '../../store/categories/category-selector';
 import SpinnerComponent from '../spinner/spinner.component';
+
+import './shop-categories.styles.scss';
 
 
 const ShopCategoriesComponent = ({ title, target }) => {
-    const isLoading = useSelector(selectCategoriesIsLoading)
-    const categoriesMap = useSelector(selectCategoriesMap)
+    const isLoading = useSelector(selectCategoriesIsLoading);
+    const categoriesMap = useSelector(selectCategoriesMap);
     const navigate = useNavigate();
 
     return (
         <Fragment>
             <h2 onClick={ () => navigate(`/shop/${ title }`) }
-                className={ `category-title ${ target }-header` }>{ title }</h2>
+                className={ `container category-title ${ target }-header` }>{ title }</h2>
             {
                 isLoading ?
                     <SpinnerComponent/> :
-                    <div className={ `products-container ${ target }` }>
+                    <div className={ `container products-container ${ target }` }>
                         { categoriesMap[title] &&
                             categoriesMap[title].map(product => (
                                 <ProductCardComponent key={ product.id } product={ product }/>)) }
@@ -27,7 +29,7 @@ const ShopCategoriesComponent = ({ title, target }) => {
             }
 
         </Fragment>
-    )
-}
+    );
+};
 
-export default ShopCategoriesComponent
+export default ShopCategoriesComponent;

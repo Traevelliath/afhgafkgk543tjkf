@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import ShopCategoriesComponent from '../../components/shop-categories/shop-categories.component';
-import { fetchCategoriesAsync } from '../../store/categories/category-action';
+import { fetchCategoriesStart } from '../../store/categories/category-action';
 
 
 const DynamicProductPageComponent = () => {
@@ -12,12 +12,12 @@ const DynamicProductPageComponent = () => {
     const target = 'category';
 
     useEffect(() => {
-        dispatch(fetchCategoriesAsync())
-    }, [])
+        dispatch(fetchCategoriesStart());
+    }, []);
 
     return (
         <ShopCategoriesComponent title={ category } target={ target }/>
-    )
-}
+    );
+};
 
-export default DynamicProductPageComponent
+export default DynamicProductPageComponent;

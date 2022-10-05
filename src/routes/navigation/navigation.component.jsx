@@ -1,47 +1,53 @@
-import {Link, Outlet} from 'react-router-dom';
-import { signOutUser } from '../../utils/firebase/firebase.utils'
+import { Link, Outlet } from 'react-router-dom';
+import { signOutStart } from '../../store/user/user-actions';
 import CartIconComponent from '../../components/cart-icon/cart-icon.component';
 import CartDropdownComponent from '../../components/cart-dropdown/cart-dropdown.component';
 
 import { Fragment } from 'react';
 
 import { ReactComponent as CrwnLogo } from '../../assets/logo.svg';
-import {useSelector} from 'react-redux';
-import {userSelector} from '../../store/user/user-selector';
-import {selectHideDropdown} from '../../store/cart/cart-selector';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../store/user/user-selector';
+import { selectHideDropdown } from '../../store/cart/cart-selector';
 
-import './navigation.styles.scss'
+import './navigation.styles.scss';
+
 
 const NavigationComponent = () => {
-    const currentUser = useSelector(userSelector)
-    const hideDropdown = useSelector(selectHideDropdown)
+    const dispatch = useDispatch();
+    const currentUser = useSelector(selectUser);
+    const hideDropdown = useSelector(selectHideDropdown);
+
+    const signOutUser = () => dispatch(signOutStart());
 
     return (
         <Fragment>
-            <div className='navigation'>
-                <Link className='logo-container' to='/'>
-                    <CrwnLogo/>
-                </Link>
-                <div className='navlinks-container'>
-                    <Link className='navlink' to='/shop'>
-                        SHOP
+            <header>
+                <div className='container navigation'>
+                    <Link className='logo-container' to='/'>
+                        <CrwnLogo/>
                     </Link>
-                    {
-                        currentUser ?
-                            <span className='navlink' onClick={signOutUser}>
-                                SIGN OUT
-                            </span> :
-                            <Link className='navlink' to='/auth'>
-                                SIGN IN
-                            </Link>
-                    }
-                    <CartIconComponent />
+                    <div className='navlinks-container'>
+                        <Link className='navlink' to='/shop'>
+                            SHOP
+                        </Link>
+                        {
+                            currentUser ?
+                                <span className='navlink' onClick={ signOutUser }>
+                                    SIGN OUT
+                                </span> :
+                                <Link className='navlink' to='/auth'>
+                                    SIGN IN
+                                </Link>
+                        }
+                        <CartIconComponent/>
+                    </div>
+                    { !hideDropdown && <CartDropdownComponent/> }
                 </div>
-                { !hideDropdown && <CartDropdownComponent /> }
-            </div>
-            <Outlet />
+            </header>
+            <Outlet/>
         </Fragment>
-    )
-}
+    );
+};
 
-export default NavigationComponent
+export default NavigationComponent;
