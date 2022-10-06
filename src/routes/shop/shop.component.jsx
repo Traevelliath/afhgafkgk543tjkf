@@ -4,7 +4,6 @@ import ShopCategoriesComponent from '../../components/shop-categories/shop-categ
 import SpinnerComponent from '../../components/spinner/spinner.component';
 import { fetchCategoriesStart } from '../../store/categories/category-action';
 import { selectCategoriesIsLoading, selectCategoriesMap } from '../../store/categories/category-selector';
-import './shop.styles.scss';
 
 
 const ShopComponent = () => {
