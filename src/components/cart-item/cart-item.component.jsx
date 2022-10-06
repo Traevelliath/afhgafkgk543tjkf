@@ -17,7 +17,7 @@ const CartItemComponent = ({ cartItem }) => {
         <div className='cart-item-container'>
             <img src={ imageUrl } alt={ name }/>
             <div className='item-details'>
-                <h2 className='name'>{ name }</h2>
+                <h3 className='name'>{ name }</h3>
                 <span className='price'>{ quantity } x ${ price }</span>
             </div>
             <div className='inline-end-section'>
