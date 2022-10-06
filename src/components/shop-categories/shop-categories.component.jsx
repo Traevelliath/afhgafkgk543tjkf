@@ -15,7 +15,7 @@ const ShopCategoriesComponent = ({ title, target }) => {
     const navigate = useNavigate();
 
     return (
-        <div className='container'>
+        <section>
             <h2 onClick={ () => navigate(`/shop/${ title }`) }
                 className={ `container category-title ${ target }-header` }>{ title }</h2>
             {
@@ -27,8 +27,7 @@ const ShopCategoriesComponent = ({ title, target }) => {
                                 <ProductCardComponent key={ product.id } product={ product }/>)) }
                     </div>
             }
-
-        </div>
+        </section>
     );
 };
 

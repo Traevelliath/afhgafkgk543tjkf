@@ -1,0 +1,26 @@
+.checkout-item-container {
+  min-width             : 380px;
+  max-width             : 450px;
+  display               : grid;
+  grid-template-columns : repeat(5, 1fr);
+  justify-items         : center;
+  align-items           : center;
+  margin-bottom         : 1em;
+
+  .image-container {
+    width : 80%;
+
+    img {
+      width : 100%;
+      }
+    }
+
+  .quantity {
+
+    .value {
+      padding : 0 .7em;
+      }
+
+    }
+
+  }

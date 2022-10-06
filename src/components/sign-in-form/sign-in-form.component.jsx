@@ -4,6 +4,8 @@ import { emailSignInStart, googleSignInStart } from '../../store/user/user-actio
 import ButtonComponent from '../button/button.component';
 import FormInputComponent from '../form-input/form-input.component';
 
+import './sign-in-form.styles.scss';
+
 
 const defaultFormField = {
     email: '',
@@ -46,7 +48,7 @@ const SignInFormComponent = () => {
     };
 
     return (
-        <div className='sign-up-container'>
+        <div className='sign-in-container'>
             <h2>Already have an account?</h2>
             <span>Sign in with your email</span>
             <form onSubmit={ submitHandler }>

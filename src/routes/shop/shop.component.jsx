@@ -1,6 +1,6 @@
-import { Fragment, useEffect } from 'react';
-import ShopCategoriesComponent from '../../components/shop-categories/shop-categories.component';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ShopCategoriesComponent from '../../components/shop-categories/shop-categories.component';
 import SpinnerComponent from '../../components/spinner/spinner.component';
 import { fetchCategoriesStart } from '../../store/categories/category-action';
 import { selectCategoriesIsLoading, selectCategoriesMap } from '../../store/categories/category-selector';
@@ -18,7 +18,7 @@ const ShopComponent = () => {
     }, []);
 
     return (
-        <section className='shop-section'>
+        <div className='shop-section'>
             {
                 isLoading ?
                     <SpinnerComponent/> :
@@ -26,7 +26,7 @@ const ShopComponent = () => {
                         <ShopCategoriesComponent key={ title } title={ title } target={ target }/>
                     )
             }
-        </section>
+        </div>
     );
 };
 

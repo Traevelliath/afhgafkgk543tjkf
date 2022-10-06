@@ -1,9 +1,12 @@
+import './checkout-header.styles.scss';
+
+
 const CheckoutHeaderComponent = ({ header }) => {
     return (
         <div className='header-block'>
-            <span>{header}</span>
+            { header }
         </div>
-    )
-}
+    );
+};
 
-export default CheckoutHeaderComponent
+export default CheckoutHeaderComponent;

@@ -5,13 +5,15 @@ import { useSelector } from 'react-redux';
 import PaymentFormComponent from '../../components/payment-form/payment-form.component';
 import { selectCartCost, selectCartItems } from '../../store/cart/cart-selector';
 
+import './checkout.styles.scss';
+
 
 const checkoutHeaders = [
     'product',
-    'description',
-    'quantity',
-    'price',
-    'remove'
+    '|description',
+    '|quantity',
+    '|price',
+    '|remove'
 ];
 
 const CheckoutComponent = () => {
@@ -19,23 +21,25 @@ const CheckoutComponent = () => {
     const cartTotalCost = useSelector(selectCartCost);
 
     return (
-        <div className='checkout-container'>
+        <section className='checkout-container'>
             <div className='checkout-header'>
                 { checkoutHeaders.map(header => <CheckoutHeaderComponent
                     key={ checkoutHeaders.indexOf(header) }
                     header={ header }
                 />) }
             </div>
-            {
-                !(cartItems.length === 0) ?
-                    cartItems.map(item => <CheckoutItemComponent key={ item.id } cartItem={ item }/>) :
-                    <div className='empty-cart-header'>
-                        Cart is empty...
-                    </div>
-            }
+            <div className='checkout-body'>
+                {
+                    !(cartItems.length === 0) ?
+                        cartItems.map(item => <CheckoutItemComponent key={ item.id } cartItem={ item }/>) :
+                        <div className='empty-cart-header'>
+                            Cart is empty...
+                        </div>
+                }
+            </div>
             <span className='total'>Total Cost: ${ cartTotalCost }</span>
             <PaymentFormComponent/>
-        </div>
+        </section>
     );
 };
 

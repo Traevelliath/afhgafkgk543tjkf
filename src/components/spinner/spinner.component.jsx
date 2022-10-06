@@ -1,8 +1,9 @@
-import './spinner.styles.scss'
+import './spinner.styles.scss';
 
-const SpinnerComponent = () =>
+
+const SpinnerComponent = ({ props }) =>
     <div className='spinner-overlay'>
-        <div className='spinner'></div>
-    </div>
+        <div className={ props || 'spinner' }></div>
+    </div>;
 
-export default SpinnerComponent
+export default SpinnerComponent;

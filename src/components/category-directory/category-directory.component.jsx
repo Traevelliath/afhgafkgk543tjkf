@@ -4,7 +4,7 @@ import './category-directory.styles.scss';
 
 
 const CategoryDirectoryComponent = ({ categories }) => {
-    return <section>
+    return <section className='section'>
         <div className='container'>
             <div className='categories-container'>
                 { categories.map(category => <CategoryItemContainer key={ category.id } category={ category }/>) }

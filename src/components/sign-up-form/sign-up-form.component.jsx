@@ -4,6 +4,8 @@ import { signUpStart } from '../../store/user/user-actions';
 import ButtonComponent from '../button/button.component';
 import FormInputComponent from '../form-input/form-input.component';
 
+import '../sign-in-form/sign-in-form.styles.scss';
+
 
 const defaultFormField = {
     displayName: '',
@@ -41,7 +43,7 @@ const SignUpFormComponent = () => {
     };
 
     return (
-        <div className='sign-up-container'>
+        <div className='sign-in-container'>
             <h2>Don't have an account?</h2>
             <span>Sign Up with your email</span>
             <form onSubmit={ submitHandler }>

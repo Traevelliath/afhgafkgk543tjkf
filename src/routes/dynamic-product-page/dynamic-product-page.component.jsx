@@ -16,7 +16,9 @@ const DynamicProductPageComponent = () => {
     }, []);
 
     return (
-        <ShopCategoriesComponent title={ category } target={ target }/>
+        <div>
+            <ShopCategoriesComponent title={ category } target={ target }/>
+        </div>
     );
 };
 

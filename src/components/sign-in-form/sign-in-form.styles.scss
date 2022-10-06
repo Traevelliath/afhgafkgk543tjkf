@@ -1,0 +1,35 @@
+.sign-in-container {
+  display        : flex;
+  flex-direction : column;
+
+  h2 {
+    font-size : 2.5rem;
+    }
+
+  span {
+    font-size : 1.5rem;
+    }
+
+  .buttons-container {
+    margin-block-start : 1em;
+    display            : flex;
+    flex-direction     : column;
+    justify-content    : space-between;
+    gap                : .2em;
+    }
+
+  }
+
+@media (min-width : 850px) {
+
+  .sign-in-container {
+    min-width : 400px;
+
+    .buttons-container {
+      flex-direction : row;
+      gap            : 1%;
+      }
+
+    }
+
+  }

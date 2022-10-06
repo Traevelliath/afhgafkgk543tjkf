@@ -12,7 +12,7 @@ const ButtonComponent = ({ children, buttonType, isLoading, ...otherProps }) => 
                    className={ `button-container ${ BUTTON_TYPE_CLASSES[buttonType] }` }
                    { ...otherProps }>
         { isLoading ?
-            <SpinnerComponent/> :
+            <SpinnerComponent props='button'/> :
             children }
     </button>;
 };

@@ -5,6 +5,8 @@ import { selectCartCost } from '../../store/cart/cart-selector';
 import { selectUser } from '../../store/user/user-selector';
 import ButtonComponent from '../button/button.component';
 
+import './payment-form.styles.scss';
+
 
 const PaymentFormComponent = () => {
     const stripe = useStripe();
@@ -47,13 +49,16 @@ const PaymentFormComponent = () => {
     };
 
     return (
-        <div onSubmit={ paymentHandler }>
-            <CardElement/>
-            <ButtonComponent
-                isLoading={ isProcessingPayment }
-                onClick={ paymentHandler }>
-                Pay now
-            </ButtonComponent>
+        <div className='payment-form' onSubmit={ paymentHandler }>
+            <div className='card-element'>
+                <CardElement/>
+                <ButtonComponent
+                    buttonType='inverted'
+                    isLoading={ isProcessingPayment }
+                    onClick={ paymentHandler }>
+                    Pay now
+                </ButtonComponent>
+            </div>
         </div>
     );
 };

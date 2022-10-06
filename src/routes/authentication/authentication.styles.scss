@@ -1,0 +1,19 @@
+.authentication-container {
+  margin         : 5em 1em 2em 1em;
+  display        : flex;
+  flex-direction : column;
+  gap            : 3em;
+
+  button {
+    height : 4em;
+    }
+  }
+
+@media (min-width : 850px) {
+
+  .authentication-container {
+    flex-direction  : row;
+    justify-content : space-around;
+    }
+
+  }
