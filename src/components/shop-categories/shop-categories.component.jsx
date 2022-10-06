@@ -15,7 +15,7 @@ const ShopCategoriesComponent = ({ title, target }) => {
     const navigate = useNavigate();
 
     return (
-        <Fragment>
+        <div className='container'>
             <h2 onClick={ () => navigate(`/shop/${ title }`) }
                 className={ `container category-title ${ target }-header` }>{ title }</h2>
             {
@@ -28,7 +28,7 @@ const ShopCategoriesComponent = ({ title, target }) => {
                     </div>
             }
 
-        </Fragment>
+        </div>
     );
 };
 

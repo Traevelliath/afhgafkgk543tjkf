@@ -13,6 +13,10 @@
   &.shop-header:hover {
     text-decoration: underline;
   }
+
+  &:first-child {
+    padding-top: 0;
+  }
 }
 
 .products-container {

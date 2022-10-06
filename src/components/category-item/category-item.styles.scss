@@ -1,10 +1,24 @@
 .category-container {
-  height: 20rem;
+  min-height: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
   cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+
+    & .background-image {
+      transform: scale(1.1);
+      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+
+    & .category-body-container {
+      opacity: 0.9;
+    }
+  }
 
   .background-image {
     width: 100%;
@@ -24,7 +38,7 @@
   }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 699px) {
 
   .category-container + .category-container {
     margin-top: 1em;
