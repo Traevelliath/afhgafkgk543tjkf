@@ -1,6 +1,7 @@
 .cart-icon-container {
   display     : flex;
   align-items : center;
+  box-sizing  : unset;
 
   .shopping-icon {
     height         : 3rem;
@@ -8,7 +9,10 @@
     }
 
   .item-count {
-    position : relative;
-    right    : 50%;
+    width      : 50px;
+    position   : absolute;
+    top        : 37px;
+    right      : 8px;
+    text-align : center;
     }
   }
