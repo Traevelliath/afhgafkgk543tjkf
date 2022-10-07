@@ -1,5 +1,6 @@
-import {createAction} from '../../utils/create-action.utils';
-import {CATEGORIES_ACTION_TYPES} from './category-types';
+import { createAction } from '../../utils/create-action.utils';
+import { CATEGORIES_ACTION_TYPES } from './category-types';
+
 
 export const fetchCategoriesStart = () => createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START);
 

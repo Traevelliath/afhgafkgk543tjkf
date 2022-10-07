@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { emailSignInStart, googleSignInStart } from '../../store/user/user-actions';
+import { selectError, selectUserReducer } from '../../store/user/user-selector';
 import ButtonComponent from '../button/button.component';
 import FormInputComponent from '../form-input/form-input.component';
 
 import './sign-in-form.styles.scss';
+import SpinnerComponent from '../spinner/spinner.component';
 
 
 const defaultFormField = {
@@ -14,8 +16,13 @@ const defaultFormField = {
 
 const SignInFormComponent = () => {
     const dispatch = useDispatch();
+    const { isLoading } = useSelector(selectUserReducer);
+    const errorCode = useSelector(selectError);
+    const [ isSigningIn, setIsSigningIn ] = useState(false);
     const [ formFields, setFormFields ] = useState(defaultFormField);
     const { email, password } = formFields;
+
+    const setIsLoading = () => setIsSigningIn(!isSigningIn);
 
     const changeHandler = (event) => {
         const { name, value } = event.target;
@@ -30,20 +37,21 @@ const SignInFormComponent = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        try {
-            dispatch(emailSignInStart(email, password));
-            resetFormFields();
-        } catch (error) {
-            switch (error) {
-                case 'auth/user-not-found':
-                    alert('User not found');
-                    break;
-                case 'auth/wrong-password':
-                    alert('email or password is incorrect');
-                    break;
-                default:
-                    console.log(error);
-            }
+        setIsLoading();
+        dispatch(emailSignInStart(email, password));
+        setIsLoading();
+        resetFormFields();
+
+        switch (errorCode) {
+            case 'auth/user-not-found':
+                alert('User not found');
+                break;
+            case 'auth/wrong-password':
+                alert('email and/or password are incorrect');
+                break;
+            default:
+                console.log(errorCode);
+                return;
         }
     };
 
@@ -68,7 +76,11 @@ const SignInFormComponent = () => {
                     onChange={ changeHandler }
                     value={ password }/>
                 <div className='buttons-container'>
-                    <ButtonComponent type='submit'>Sign In</ButtonComponent>
+                    <ButtonComponent type='submit'>
+                        { isLoading && isSigningIn ?
+                            <SpinnerComponent props='button inverted'/> :
+                            'Sign In' }
+                    </ButtonComponent>
                     <ButtonComponent type='button' buttonType='google' onClick={ signInWithGoogle }>
                         Google Sign In
                     </ButtonComponent>

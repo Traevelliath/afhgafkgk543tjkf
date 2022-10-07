@@ -1,23 +1,24 @@
 import { createSelector } from 'reselect';
 
-const selectCategoriesReducer = state => state.categories
+
+const selectCategoriesReducer = state => state.categories;
 
 export const selectCategories = createSelector(
-    [selectCategoriesReducer],
+    [ selectCategoriesReducer ],
     categoriesSlice => categoriesSlice.categories
-)
+);
 
 export const selectCategoriesMap = createSelector(
-    [selectCategoriesReducer],
+    [ selectCategoriesReducer ],
     categories => categories.categories
-    .reduce((acc, docSnapshot) => {
-    const {title, items} = docSnapshot;
-    acc[title.toLowerCase()] = items;
-    return acc
-}, {})
-)
+        .reduce((acc, docSnapshot) => {
+            const { title, items } = docSnapshot;
+            acc[title.toLowerCase()] = items;
+            return acc;
+        }, {})
+);
 
 export const selectCategoriesIsLoading = createSelector(
-    [selectCategoriesReducer],
+    [ selectCategoriesReducer ],
     categoriesSlice => categoriesSlice.isLoading
-)
+);

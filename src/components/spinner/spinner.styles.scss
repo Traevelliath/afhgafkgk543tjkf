@@ -4,17 +4,10 @@
   justify-content : center;
   align-items     : center;
 
-  &:hover {
-
-    .button {
-      background-color : white;
-      }
-    }
-
   .spinner {
     width             : 40px;
     height            : 40px;
-    background-color  : #333;
+    background-color  : #333333;
 
     margin            : 200px auto;
     -webkit-animation : sk-rotateplane 1.2s infinite ease-in-out;
@@ -24,10 +17,14 @@
   .button {
     width             : 30px;
     height            : 30px;
-    background-color  : #333;
+    background-color  : #333333;
 
     -webkit-animation : sk-rotateplane 1.2s infinite ease-in-out;
     animation         : sk-rotateplane 1.2s infinite ease-in-out;
+
+    &.inverted {
+      background-color : white;
+      }
     }
 
   @keyframes sk-rotateplane {

@@ -1,7 +1,8 @@
 .authentication-container {
-  margin         : 5em 1em 2em 1em;
   display        : flex;
   flex-direction : column;
+  max-width      : 1500px;
+  margin         : 5em 1em 2em 1em;
   gap            : 3em;
 
   button {

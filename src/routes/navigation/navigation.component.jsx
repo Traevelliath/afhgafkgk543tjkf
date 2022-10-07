@@ -1,14 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
-import { signOutStart } from '../../store/user/user-actions';
-import CartIconComponent from '../../components/cart-icon/cart-icon.component';
-import CartDropdownComponent from '../../components/cart-dropdown/cart-dropdown.component';
-
 import { Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Outlet } from 'react-router-dom';
 
 import { ReactComponent as CrwnLogo } from '../../assets/logo.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from '../../store/user/user-selector';
+import CartDropdownComponent from '../../components/cart-dropdown/cart-dropdown.component';
+import CartIconComponent from '../../components/cart-icon/cart-icon.component';
 import { selectHideDropdown } from '../../store/cart/cart-selector';
+import { signOutStart } from '../../store/user/user-actions';
+import { selectUser } from '../../store/user/user-selector';
 
 import './navigation.styles.scss';
 

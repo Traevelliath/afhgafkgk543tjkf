@@ -1,6 +1,6 @@
+import { Elements } from '@stripe/react-stripe-js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Elements } from '@stripe/react-stripe-js';
 
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';

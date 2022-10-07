@@ -1,9 +1,10 @@
-import {CART_ACTION_TYPES} from './cart-types';
+import { CART_ACTION_TYPES } from './cart-types';
+
 
 export const CART_INITIAL_VALUES = {
     cartItems: [],
     hideDropdown: true,
-}
+};
 
 export const cartReducer = (state = CART_INITIAL_VALUES, action = {}) => {
     const { type, payload } = action;
@@ -22,4 +23,4 @@ export const cartReducer = (state = CART_INITIAL_VALUES, action = {}) => {
         default:
             return state;
     }
-}
+};

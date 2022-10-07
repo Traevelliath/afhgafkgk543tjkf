@@ -6,10 +6,12 @@ import './authentication.styles.scss';
 
 const AuthenticationComponent = () => {
     return (
-        <div className='authentication-container'>
-            <SignInFormComponent/>
-            <SignUpFormComponent/>
-        </div>
+        <section className='container'>
+            <div className='authentication-container'>
+                <SignInFormComponent/>
+                <SignUpFormComponent/>
+            </div>
+        </section>
     );
 };
 

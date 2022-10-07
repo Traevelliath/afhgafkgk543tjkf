@@ -8,16 +8,7 @@ import {
     signInWithPopup,
     signOut
 } from 'firebase/auth';
-import {
-    collection,
-    doc,
-    getDoc,
-    getFirestore,
-    query,
-    setDoc,
-    writeBatch,
-    getDocs
-} from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch } from 'firebase/firestore';
 
 
 const firebaseConfig = {
